@@ -8,7 +8,9 @@ var rand = random();
 var timer = setInterval(function() {removeTable()}, (rand * 1000));
 
 /* Created a function called addTable() which will store the values of the initializer row and pass them to an entirely new row
-which an x button at the end which has an innerHTML that executes the removeRow() function when clicked */
+which an x button at the end which has an innerHTML that executes the removeRow() function when clicked. After creating a new
+row with the values in the initalizer row, the clearInitRow() function is called which clears the values the user has added
+to the initializer row  to set the user up for the next addition. */
 
 function addTable() {
   var firstName = document.getElementById("firstName").value;
