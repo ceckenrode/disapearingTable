@@ -46,5 +46,5 @@ function random() {
 function clearInitRow() {
   document.getElementById("firstName").value = "";
   document.getElementById("lastName").value = "";
-  document.getElementById("email") = "";
+  document.getElementById("email").value = "";
 }
