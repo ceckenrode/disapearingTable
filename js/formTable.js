@@ -16,7 +16,7 @@ function addTable() {
   var firstName = document.getElementById("firstName").value;
   var lastName = document.getElementById("lastName").value;
   var email = document.getElementById("email").value;
-  var buttonStr = "<button id='remove' onclick='removeTable()'>x</button>";
+  var buttonStr = "<button type='button' id='remove' onclick='removeTable()'><span class='glyphicon glyphicon-remove'></span></button>";
   var row = table.insertRow(1);
   row.class = "added";
   var cell1 = row.insertCell(0);

@@ -1,7 +1,15 @@
 * {
   text-align: center;
+  font-family: Verdana;
 }
 
 th {
   text-align: center;
+}
+
+body {
+  background-image: url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/linen.png");
+}
+#add {
+  margin-top: 5px;
 }
