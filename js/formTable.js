@@ -10,8 +10,10 @@ var timer = setInterval(function() {
 var tableValues = [];
 
 /* Created a function called addTable() which will store the values of the initializer row and pass them to an entirely new row
-which an x button at the end which has an innerHTML that executes the removeRow() function when clicked. After creating a new
-row with the values in the initalizer row, the clearInitRow() function is called which clears the values the user has added
+which an x button at the end which has an innerHTML that executes the removeRow() function when clicked. In order to create a new 
+row, first we call the checkDuplicates() function which will check if the exact form data already exists in the table. If not,
+we call areThereBlanks() which will check to see if any fields are empty. No new tables will be created unless both tests pass.
+After creating a new row with the values in the initalizer row, the clearInitRow() function is called which clears the values the user has added
 to the initializer row  to set the user up for the next addition. */
 
 function addTable() {
@@ -24,15 +26,15 @@ function addTable() {
 
   if (checkDuplicates(tableValues, combined) === true) {
     if (areThereBlanks(firstName, lastName, email) === false) {
-    tableValues.push(combined);
-    var row = table.insertRow(1);
-    row.class = "added";
-    var cell1 = row.insertCell(0);
-    var cell2 = row.insertCell(1);
-    var cell3 = row.insertCell(2);
-    var cell4 = row.insertCell(3);
+      tableValues.push(combined);
+      var row = table.insertRow(1);
+      row.class = "added";
+      var cell1 = row.insertCell(0);
+      var cell2 = row.insertCell(1);
+      var cell3 = row.insertCell(2);
+      var cell4 = row.insertCell(3);
 
-    
+
       cell1.innerHTML = firstName;
       cell2.innerHTML = lastName;
       cell3.innerHTML = email;
@@ -62,12 +64,14 @@ function random() {
   return Math.floor(Math.random() * (10 - 5) + 5);
 }
 
+//sets up initializer row with empty values making it easier for the user to enter new information.
 function clearInitRow() {
   document.getElementById("firstName").value = "";
   document.getElementById("lastName").value = "";
   document.getElementById("email").value = "";
 }
 
+//checks to see if the information the user is trying to add already exists inside the table.
 function checkDuplicates(arr, string) {
   if (arr.indexOf(string) === -1) {
     return true;
@@ -76,6 +80,7 @@ function checkDuplicates(arr, string) {
   }
 }
 
+//Checks if any of the required fields are blank and will stop the fields from being added if so.
 function areThereBlanks(firstName, lastName, email) {
   if (firstName === "" || lastName === "" || email === "") {
     alert("You must fill out all of the input fields!");
